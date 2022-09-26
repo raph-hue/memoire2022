@@ -1,0 +1,21 @@
+
+entity Niveau(niveaus) {
+	nom String required unique minlength(3) maxlength(15)
+}
+entity Matiere(matieres){
+	nom String required unique minlength(2) maxlength(100)
+}
+entity Classe(classes) {
+	nom String required minlength(4) maxlength(50),
+	mensualite String required minlength(5) maxlength(50)
+}
+relationship ManyToOne {
+	Classe{niveau} to Niveau
+}
+relationship ManyToMany{
+ Niveau{matiere required} to Matiere{niveau}
+}
+paginate all with pagination
+service all with serviceImpl
+dto all with mapstruct
+filter all 

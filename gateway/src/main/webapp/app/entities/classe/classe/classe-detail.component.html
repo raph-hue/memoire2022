@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="classe">
+            <h2><span jhiTranslate="gatewayApp.classeClasse.detail.title">Classe</span> {{ classe.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.classeClasse.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ classe.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.classeClasse.mensualite">Mensualite</span></dt>
+                <dd>
+                    <span>{{ classe.mensualite }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.classeClasse.niveau">Niveau</span></dt>
+                <dd>
+                    <div *ngIf="classe.niveauId">
+                        <a [routerLink]="['/niveau', classe.niveauId, 'view']">{{ classe.niveauId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/classe', classe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

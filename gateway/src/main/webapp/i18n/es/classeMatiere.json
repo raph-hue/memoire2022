@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "classeMatiere": {
+      "home": {
+        "title": "Matieres",
+        "createLabel": "Crear nuevo Matiere",
+        "createOrEditLabel": "Crear o editar Matiere",
+        "notFound": "Ningún Matieres encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Matiere {{ id }}?"
+      },
+      "detail": {
+        "title": "Matiere"
+      },
+      "nom": "Nom",
+      "niveau": "Niveau"
+    }
+  },
+  "classeApp": {
+    "classeMatiere": {
+      "created": "Un nuevo Matiere ha sido creado con el identificador {{ param }}",
+      "updated": "Un Matiere ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Matiere ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

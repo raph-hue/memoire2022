@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="serviceUtil">
+            <h2><span jhiTranslate="gatewayApp.utilisateurServiceUtil.detail.title">Service Util</span> {{ serviceUtil.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.utilisateurServiceUtil.code">Code</span></dt>
+                <dd>
+                    <span>{{ serviceUtil.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurServiceUtil.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ serviceUtil.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurServiceUtil.description">Description</span></dt>
+                <dd>
+                    <span>{{ serviceUtil.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/service-util', serviceUtil.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

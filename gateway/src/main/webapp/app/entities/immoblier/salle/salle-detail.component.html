@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="salle">
+            <h2><span jhiTranslate="gatewayApp.immoblierSalle.detail.title">Salle</span> {{ salle.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.immoblierSalle.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ salle.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.immoblierSalle.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{ salle.nombre }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.immoblierSalle.batiment">Batiment</span></dt>
+                <dd>
+                    <div *ngIf="salle.batimentId">
+                        <a [routerLink]="['/batiment', salle.batimentId, 'view']">{{ salle.batimentId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/salle', salle.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

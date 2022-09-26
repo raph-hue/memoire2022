@@ -1,0 +1,42 @@
+
+entity GroupeTransport(groupeTransports){
+	nom String required unique minlength(3) maxlength(10),
+    nombreEleves Integer required,
+    etat Boolean
+}
+entity Zone(zones){
+    libelle String required minlength(2) maxlength(100),
+    description TextBlob required
+}
+entity ProgrammeTransport(programmeTransports){
+    heurDepart Instant required,
+    dateDepart LocalDate required
+}
+entity Bus(bus){
+	matricule String required unique,
+    numero String required,
+    nombreplace Integer required
+}
+entity Chauffeur(chauffeurs){
+    prenom String required minlength(3) maxlength(20),
+    nom String required minlength(3) maxlength(20),
+    dateNaissance Instant required,
+    lieuNaissance String required minlength(2) maxlength(20),
+    cin String required minlength(10) maxlength(14),
+    telephone String required minlength(7) maxlength(12),
+    adresse TextBlob required
+}
+relationship ManyToOne {
+    ProgrammeTransport{groupeTransport} to GroupeTransport,
+    ProgrammeTransport{bus} to Bus
+}
+relationship ManyToMany{
+    GroupeTransport{zones required} to Zone{groupetransports}
+}
+relationship OneToOne {
+    Bus{chauffeur} to Chauffeur
+}
+paginate all with pagination
+service all with serviceImpl
+dto all with mapstruct
+filter all 

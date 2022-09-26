@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "inscriptionInscription": {
+      "home": {
+        "title": "Inscriptions",
+        "createLabel": "Crear nuevo Inscription",
+        "createOrEditLabel": "Crear o editar Inscription",
+        "notFound": "Ningún Inscriptions encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Inscription {{ id }}?"
+      },
+      "detail": {
+        "title": "Inscription"
+      },
+      "dateInscription": "Date Inscription",
+      "classe": "Classe",
+      "statut": "Statut",
+      "eleve": "Eleve",
+      "annee": "Annee"
+    }
+  },
+  "inscriptionApp": {
+    "inscriptionInscription": {
+      "created": "Un nuevo Inscription ha sido creado con el identificador {{ param }}",
+      "updated": "Un Inscription ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Inscription ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

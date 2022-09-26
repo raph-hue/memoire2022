@@ -1,0 +1,16 @@
+
+entity Paiement {
+	type String required,
+    datePaiement LocalDate required
+}
+entity Mois {
+	nom String required
+}
+relationship OneToMany {
+	Mois to Paiement{mois}
+}
+
+paginate all with pagination
+dto all with mapstruct
+service all with serviceImpl
+filter all 

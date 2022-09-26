@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="eleve">
+            <h2><span jhiTranslate="gatewayApp.inscriptionEleve.detail.title">Eleve</span> {{ eleve.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ eleve.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ eleve.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ eleve.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.sexe">Sexe</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.Sexe.' + eleve.sexe }}">{{ eleve.sexe }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ eleve.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ eleve.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.email">Email</span></dt>
+                <dd>
+                    <span>{{ eleve.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.dateNaissance">Date Naissance</span></dt>
+                <dd>
+                    <span>{{ eleve.dateNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.lieuNaissance">Lieu Naissance</span></dt>
+                <dd>
+                    <span>{{ eleve.lieuNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionEleve.tuteur">Tuteur</span></dt>
+                <dd>
+                    <div *ngIf="eleve.tuteurId">
+                        <a [routerLink]="['/tuteur', eleve.tuteurId, 'view']">{{ eleve.tuteurId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/eleve', eleve.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

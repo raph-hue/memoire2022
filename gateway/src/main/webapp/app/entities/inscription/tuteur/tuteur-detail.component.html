@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tuteur">
+            <h2><span jhiTranslate="gatewayApp.inscriptionTuteur.detail.title">Tuteur</span> {{ tuteur.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.inscriptionTuteur.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ tuteur.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionTuteur.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ tuteur.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionTuteur.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ tuteur.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionTuteur.email">Email</span></dt>
+                <dd>
+                    <span>{{ tuteur.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptionTuteur.sexe">Sexe</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.Sexe.' + tuteur.sexe }}">{{ tuteur.sexe }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tuteur', tuteur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

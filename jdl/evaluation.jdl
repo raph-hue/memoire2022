@@ -1,0 +1,28 @@
+entity Trimestre(trimestres) {
+    dateDebut LocalDate required,
+    dateFin LocalDate required,
+    annee String required 
+}
+
+entity Evaluation(evaluations) {
+    type String required minlength(2) maxlength(20),
+    dateEvaluation Instant required,
+    classe String required,
+    matiere String required
+}
+
+entity Note(notes) {
+    note Double required,
+    eleve String required,
+    apperciation TextBlob required
+}
+
+relationship ManyToOne {
+    Evaluation{trimestre} to Trimestre,
+    Note{evaluation} to Evaluation
+}
+
+paginate all with pagination
+dto all with mapstruct
+service all with serviceImpl
+filter all

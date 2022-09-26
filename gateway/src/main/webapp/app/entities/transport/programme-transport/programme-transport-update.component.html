@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-programme-transport-heading" jhiTranslate="gatewayApp.transportProgrammeTransport.home.createOrEditLabel">Create or edit a Programme Transport</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.transportProgrammeTransport.heurDepart" for="field_heurDepart">Heur Depart</label>
+                    <div class="d-flex">
+                        <input id="field_heurDepart" type="datetime-local" class="form-control" name="heurDepart" formControlName="heurDepart" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('heurDepart')!.invalid && (editForm.get('heurDepart')!.dirty || editForm.get('heurDepart')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('heurDepart')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('heurDepart')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.transportProgrammeTransport.dateDepart" for="field_dateDepart">Date Depart</label>
+                    <div class="input-group">
+                        <input id="field_dateDepart" type="text" class="form-control" name="dateDepart" ngbDatepicker #dateDepartDp="ngbDatepicker" formControlName="dateDepart"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDepartDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateDepart')!.invalid && (editForm.get('dateDepart')!.dirty || editForm.get('dateDepart')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateDepart')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.transportProgrammeTransport.groupeTransport" for="field_groupeTransport">Groupe Transport</label>
+                    <select class="form-control" id="field_groupeTransport" name="groupeTransport" formControlName="groupeTransportId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="groupeTransportOption.id" *ngFor="let groupeTransportOption of groupetransports; trackBy: trackById">{{ groupeTransportOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.transportProgrammeTransport.bus" for="field_bus">Bus</label>
+                    <select class="form-control" id="field_bus" name="bus" formControlName="busId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="busOption.id" *ngFor="let busOption of buses; trackBy: trackById">{{ busOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

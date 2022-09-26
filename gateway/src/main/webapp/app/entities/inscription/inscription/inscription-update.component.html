@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-inscription-heading" jhiTranslate="gatewayApp.inscriptionInscription.home.createOrEditLabel">Create or edit a Inscription</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.inscriptionInscription.dateInscription" for="field_dateInscription">Date Inscription</label>
+                    <div class="d-flex">
+                        <input id="field_dateInscription" type="datetime-local" class="form-control" name="dateInscription" formControlName="dateInscription" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateInscription')!.invalid && (editForm.get('dateInscription')!.dirty || editForm.get('dateInscription')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateInscription')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateInscription')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.inscriptionInscription.classe" for="field_classe">Classe</label>
+                    <input type="text" class="form-control" name="classe" id="field_classe"
+                           formControlName="classe"/>
+                    <div *ngIf="editForm.get('classe')!.invalid && (editForm.get('classe')!.dirty || editForm.get('classe')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('classe')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.inscriptionInscription.statut" for="field_statut">Statut</label>
+                    <select class="form-control" name="statut" formControlName="statut" id="field_statut">
+                        <option value="INSCRIT">{{ 'gatewayApp.Etat.INSCRIT' | translate }}</option>
+                        <option value="NON_INSCRIT">{{ 'gatewayApp.Etat.NON_INSCRIT' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('statut')!.invalid && (editForm.get('statut')!.dirty || editForm.get('statut')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('statut')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.inscriptionInscription.eleve" for="field_eleve">Eleve</label>
+                    <select class="form-control" id="field_eleve" name="eleve" formControlName="eleveId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="eleveOption.id" *ngFor="let eleveOption of eleves; trackBy: trackById">{{ eleveOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.inscriptionInscription.annee" for="field_annee">Annee</label>
+                    <select class="form-control" id="field_annee" name="annee" formControlName="anneeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="anneeOption.id" *ngFor="let anneeOption of annees; trackBy: trackById">{{ anneeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="utilisateur">
+            <h2><span jhiTranslate="gatewayApp.utilisateurUtilisateur.detail.title">Utilisateur</span> {{ utilisateur.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ utilisateur.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ utilisateur.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.sexe">Sexe</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.Sexe.' + utilisateur.sexe }}">{{ utilisateur.sexe }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ utilisateur.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ utilisateur.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.cin">Cin</span></dt>
+                <dd>
+                    <span>{{ utilisateur.cin }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.email">Email</span></dt>
+                <dd>
+                    <span>{{ utilisateur.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.password">Password</span></dt>
+                <dd>
+                    <span>{{ utilisateur.password }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.serviceUtil">Service Util</span></dt>
+                <dd>
+                    <div *ngIf="utilisateur.serviceUtilId">
+                        <a [routerLink]="['/service-util', utilisateur.serviceUtilId, 'view']">{{ utilisateur.serviceUtilId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.utilisateurUtilisateur.profiles">Profiles</span></dt>
+                <dd>
+                    <span *ngFor="let profiles of utilisateur.profiles; let last = last">
+                        <a [routerLink]="['/profile-util', profiles?.id, 'view']">{{ profiles.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/utilisateur', utilisateur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

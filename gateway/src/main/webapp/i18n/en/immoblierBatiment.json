@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "immoblierBatiment": {
+      "home": {
+        "title": "Batiments",
+        "createLabel": "Create a new Batiment",
+        "createOrEditLabel": "Create or edit a Batiment",
+        "notFound": "No Batiments found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Batiment {{ id }}?"
+      },
+      "detail": {
+        "title": "Batiment"
+      },
+      "nom": "Nom",
+      "nombreSalle": "Nombre Salle"
+    }
+  },
+  "immoblierApp": {
+    "immoblierBatiment": {
+      "created": "A new Batiment is created with identifier {{ param }}",
+      "updated": "A Batiment is updated with identifier {{ param }}",
+      "deleted": "A Batiment is deleted with identifier {{ param }}"
+    }
+  }
+}

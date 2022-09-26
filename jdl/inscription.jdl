@@ -1,0 +1,50 @@
+enum Sexe{
+    MASCULIN,
+    FEMININ
+}
+
+enum Etat {
+    INSCRIT,
+    NON_INSCRIT
+}
+
+entity Tuteur(tuteurs) {
+    prenom String required minlength(2) maxlength(55),
+    nom String required  minlength(2) maxlength(45),
+    adresse TextBlob required,
+    email String required unique,
+    sexe Sexe required 
+}
+
+entity Inscription(inscriptions) {
+    dateInscription Instant required,
+    classe String required,
+    statut Etat required
+}
+
+entity Eleve(eleves) {
+    matricule String required minlength(2) maxlength(50),
+    prenom String required minlength(2) maxlength(55),
+    nom String required minlength(2) maxlength(50),
+    sexe Sexe required,
+    adresse TextBlob required,
+    telephone String unique minlength(2) maxlength(12),
+    email String unique,
+    dateNaissance LocalDate required,
+    lieuNaissance String required
+}
+
+entity Annee(annes) {
+    nom String required minlength(5) maxlength(50)
+}
+
+relationship ManyToOne{
+    Eleve{tuteur} to Tuteur,
+    Inscription{eleve} to Eleve,
+    Inscription{annee} to Annee
+
+}
+paginate all with pagination
+service all with serviceImpl 
+dto all with mapstruct
+filter all

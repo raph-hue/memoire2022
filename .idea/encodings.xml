@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-cantine/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-cantine/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-classe/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-classe/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-cours/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-cours/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-evaluation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-evaluation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-immoblier/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-immoblier/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-inscription/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-inscription/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-paiement/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-paiement/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-transport/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-transport/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-utilisateur/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-utilisateur/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

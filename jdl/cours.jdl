@@ -1,0 +1,32 @@
+
+entity Absence(absences) {
+    idEleve String minlength(2) maxlength(255) required ,
+    motif TextBlob ,
+    etat Boolean required
+}
+entity Cours(cours) {
+	idMatiere String required minlength(2) maxlength(255) ,
+    idClasse String required minlength(2) maxlength(255),
+    idAnnee String required minlength(2) maxlength(255)
+}
+entity Enseignant(enseignants) {
+	nom String required minlength(3) maxlength(10),
+    prenom String required minlength(3) maxlength(20),
+    adresse TextBlob required ,
+    telephone String required minlength(7) maxlength(9),
+    email String required unique
+} 
+entity Horaire(horaires) {
+	horaire Instant required 
+}
+relationship OneToMany {
+	Enseignant to Cours{enseignant},
+
+	Horaire to Cours{horaire},
+    
+    Cours to Absence{cours}
+}
+paginate all with pagination
+service all with serviceImpl
+dto all with mapstruct
+filter all 

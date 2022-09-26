@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/microservice-cantine/cantine.iml" filepath="$PROJECT_DIR$/microservice-cantine/cantine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-classe/classe.iml" filepath="$PROJECT_DIR$/microservice-classe/classe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-cours/cours.iml" filepath="$PROJECT_DIR$/microservice-cours/cours.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-evaluation/evaluation.iml" filepath="$PROJECT_DIR$/microservice-evaluation/evaluation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-immoblier/immoblier.iml" filepath="$PROJECT_DIR$/microservice-immoblier/immoblier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-inscription/inscription.iml" filepath="$PROJECT_DIR$/microservice-inscription/inscription.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/memoire2022.iml" filepath="$PROJECT_DIR$/.idea/memoire2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-paiement/paiement.iml" filepath="$PROJECT_DIR$/microservice-paiement/paiement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-transport/transport.iml" filepath="$PROJECT_DIR$/microservice-transport/transport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-utilisateur/utilisateur.iml" filepath="$PROJECT_DIR$/microservice-utilisateur/utilisateur.iml" />
+    </modules>
+  </component>
+</project>
